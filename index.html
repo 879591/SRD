@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>सुप्रिया डिजिटल रीच आर्क | एडमिन पैनल के साथ</title>
+    <title>सुप्रिया डिजिटल रिसर्च | एडमिन पैनल के साथ</title>
     <!-- फॉन्ट अवेसम, गूगल फॉन्ट, स्टाइल -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -618,4 +618,113 @@
     <!-- व्हाट्सएप फ्लोटिंग बटन -->
     <a href="https://wa.me/919792006815" style="position:fixed; bottom:20px; right:20px; background:#25D366; co
 
+
+    <a href="https://wa.me/919792006815" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; width:60px; height:60px; border-radius:50px; text-align:center; font-size:30px; box-shadow: 2px 2px 3px #999; z-index:1000; display:flex; align-items:center; justify-content:center;" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+      // Firebase Logic यहाँ आएगी (Initialize App, Firestore functions, etc.)
+    </script>
+</body>
+</html>
+
+<script type="module">
+  // Firebase SDK को इम्पोर्ट करें
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, query, orderBy, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  // आपका कॉन्फ़िगरेशन (जो आपने पहले दिया था)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBLCn13U8ZnZ28tdZFeLpesSD6Yh0TscX4",
+    authDomain: "supriya-digital.firebaseapp.com",
+    projectId: "supriya-digital",
+    storageBucket: "supriya-digital.firebasestorage.app",
+    messagingSenderId: "574726513811",
+    appId: "1:574726513811:web:8d08198ef9fc2f02ce9966",
+    measurementId: "G-SBTLS3Q8K6"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // --- 1. ऑर्डर फॉर्म सबमिट करने का लॉजिक ---
+  const orderForm = document.getElementById('applicationForm');
+  const formMessage = document.getElementById('formMessage');
+
+  orderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = {
+      name: orderForm.name.value,
+      email: orderForm.email.value,
+      phone: orderForm.phone.value,
+      service: orderForm.service.value,
+      details: orderForm.details.value,
+      status: 'Pending',
+      timestamp: new Date()
+    };
+
+    try {
+      await addDoc(collection(db, "orders"), formData);
+      formMessage.innerHTML = "<span style='color:green;'>आपका ऑर्डर सफल रहा! हम जल्द संपर्क करेंगे।</span>";
+      orderForm.reset();
+    } catch (error) {
+      formMessage.innerHTML = "<span style='color:red;'>गलती हुई: " + error.message + "</span>";
+    }
+  });
+
+  // --- 2. एडमिन लॉगिन लॉजिक ---
+  const adminLink = document.getElementById('admin-link');
+  const loginModal = document.getElementById('loginModal');
+  const googleLoginBtn = document.getElementById('googleLoginBtn');
+
+  adminLink.onclick = () => loginModal.style.display = 'flex';
+
+  googleLoginBtn.onclick = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      loginModal.style.display = 'none';
+    } catch (error) {
+      alert("लॉगिन फेल: " + error.message);
+    }
+  };
+
+  // --- 3. डेटा दिखाना (केवल लॉगिन के बाद) ---
+  onAuthStateChanged(auth, (user) => {
+    const adminPanel = document.getElementById('adminPanel');
+    if (user && user.email === "suraj359010@gmail.com") { // आपकी ईमेल आईडी
+      adminPanel.style.display = 'block';
+      loadOrders();
+    } else {
+      adminPanel.style.display = 'none';
+    }
+  });
+
+  async function loadOrders() {
+    const appsList = document.getElementById('appsList');
+    const q = query(collection(db, "orders"), orderBy("timestamp", "desc"));
+    const querySnapshot = await getDocs(q);
+    
+    appsList.innerHTML = '';
+    querySnapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      const card = document.createElement('div');
+      card.className = `app-card ${data.status === 'Completed' ? 'completed' : ''}`;
+      card.innerHTML = `
+        <h3>${data.service}</h3>
+        <p><span class="label">नाम:</span> ${data.name}</p>
+        <p><span class="label">फोन:</span> ${data.phone}</p>
+        <p><span class="label">विवरण:</span> ${data.details}</p>
+        <p><span class="label">स्थिति:</span> ${data.status}</p>
+      `;
+      appsList.appendChild(card);
+    });
+  }
+
+  document.getElementById('logoutBtn').onclick = () => signOut(auth);
+</script>
 
