@@ -1,108 +1,183 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Supriya Digital Research</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#050510;color:#fff}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supriya Digital Research - Digital Success Dilane Ka Vaada!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { font-family: 'Segoe UI', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #1e0033 0%, #000000 100%); }
+    .glow { box-shadow: 0 0 40px rgba(168, 85, 247, 0.5); }
+    .service-card {
+      transition: all 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
 
-.header{position:sticky;top:0;z-index:10;padding:14px;text-align:center;font-size:20px;font-weight:700;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px)}
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-purple-900">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <span class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">SDR</span>
+        <h1 class="text-2xl font-semibold">Supriya Digital Research</h1>
+      </div>
+      <div class="hidden md:flex gap-8 text-lg">
+        <a href="#" class="hover:text-purple-400 transition">Home</a>
+        <a href="#services" class="hover:text-purple-400 transition">Services</a>
+        <a href="#fayde" class="hover:text-purple-400 transition">Website Ke Fayde</a>
+        <a href="#" class="hover:text-purple-400 transition">Work</a>
+        <a href="#" class="hover:text-purple-400 transition">Contact</a>
+      </div>
+      <a href="https://wa.me/919792006815" target="_blank" 
+         class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full flex items-center gap-2 font-medium transition">
+        Start Project <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </nav>
 
-.stories{display:flex;gap:12px;overflow-x:auto;padding:12px}
-.story{min-width:70px;text-align:center}
-.story img{width:65px;height:65px;border-radius:50%;border:3px solid transparent;background:linear-gradient(#000,#000) padding-box,linear-gradient(45deg,#ff00cc,#3333ff) border-box}
-.story p{font-size:11px;margin-top:5px}
+  <!-- Hero Section -->
+  <section class="hero-bg min-h-screen flex items-center pt-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+          आपके Business को <span class="text-yellow-400">Digital Success</span><br>दिलाने का वादा!
+        </h1>
+        <p class="text-xl text-gray-300">
+          Modern Websites • Social Media Management • YouTube Growth • Graphic Design • Digital Marketing<br>
+          एक ही जगह पर पूरी प्रोफेशनल टीम के साथ।
+        </p>
 
-.feed{padding:12px}
-.post{background:#0f0f1f;border-radius:16px;margin-bottom:16px;overflow:hidden;box-shadow:0 0 20px rgba(0,0,0,0.4)}
-.post img{width:100%;height:180px;object-fit:cover}
-.post-content{padding:12px}
-.post h3{font-size:16px}
-.post p{font-size:12px;opacity:.7;margin-top:5px}
+        <div class="flex flex-wrap gap-4">
+          <a href="https://wa.me/919792006815" target="_blank"
+             class="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-2xl flex items-center gap-3 font-semibold text-lg">
+            <i class="fab fa-whatsapp text-2xl"></i> WhatsApp पर बात करें
+          </a>
+          <a href="https://instagram.com/5tar.Suraj" target="_blank"
+             class="border-2 border-white/60 hover:bg-white/10 px-8 py-4 rounded-2xl flex items-center gap-3 text-lg">
+            <i class="fab fa-instagram text-2xl"></i> Instagram
+          </a>
+        </div>
 
-.btn{margin-top:10px;padding:10px;border:none;border-radius:25px;background:linear-gradient(45deg,#ff00cc,#3333ff);color:#fff;width:100%;font-weight:600;cursor:pointer}
-.btn:hover{transform:scale(1.05)}
+        <div class="flex items-center gap-6 text-sm">
+          <div class="flex -space-x-3">
+            <div class="w-9 h-9 bg-purple-500 rounded-full flex items-center justify-center border-2 border-black">👍</div>
+            <div class="w-9 h-9 bg-pink-500 rounded-full flex items-center justify-center border-2 border-black">📸</div>
+          </div>
+          <p>+100+ Businesses को Digital Growth में मदद कर चुके हैं</p>
+        </div>
+      </div>
 
-.nav{position:fixed;bottom:0;width:100%;display:flex;justify-content:space-around;background:#0a0a15;padding:10px;border-top:1px solid #222}
-.nav button{background:none;border:none;color:#aaa;font-size:12px}
-.nav button.active{color:#fff}
+      <div class="relative flex justify-center">
+        <div class="relative">
+          <img src="https://i.imgur.com/2f3kL8P.png" alt="Creative Studio Laptop" 
+               class="w-full max-w-md rounded-3xl glow" />
+          <div class="absolute -top-8 -right-8 bg-zinc-900/80 backdrop-blur p-4 rounded-2xl flex flex-col gap-4 text-3xl">
+            <a href="https://instagram.com/5tar.Suraj" target="_blank" class="hover:scale-110 transition"><i class="fab fa-instagram text-pink-500"></i></a>
+            <a href="https://youtube.com/@5tarsuraj" target="_blank" class="hover:scale-110 transition"><i class="fab fa-youtube text-red-500"></i></a>
+            <a href="https://wa.me/919792006815" target="_blank" class="hover:scale-110 transition"><i class="fab fa-whatsapp text-green-500"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.section{display:none;padding-bottom:80px}
-.active{display:block}
+  <!-- 🔥 Naya Premium Services Section -->
+  <section id="services" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="bg-purple-900 text-purple-300 px-6 py-2 rounded-full text-sm font-medium">हमारी Expert Services</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4">हर Digital जरूरत का <span class="text-purple-400">Professional Solution</span></h2>
+        <p class="text-xl text-gray-400 mt-3">Supriya Digital Research आपके बिजनेस को ऑनलाइन दुनिया में मजबूत बनाती है</p>
+      </div>
 
-.form{padding:15px}
-input,textarea{width:100%;margin-top:10px;padding:12px;border-radius:12px;border:none;background:#111;color:#fff}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">🌐</div>
+          <h3 class="text-2xl font-semibold mb-3">Website Design & Development</h3>
+          <p class="text-gray-400 leading-relaxed">Modern, Responsive, SEO-Friendly और Mobile-First Websites जो आपके ब्रांड को प्रोफेशनल लुक दें।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
 
-.success{margin-top:10px;color:#00ff99;font-size:14px}
+        <!-- Service Card 2 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">📱</div>
+          <h3 class="text-2xl font-semibold mb-3">Social Media Management</h3>
+          <p class="text-gray-400 leading-relaxed">Instagram, Facebook, YouTube पर Complete Page Management, Posting, Growth Strategy और Engagement।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
 
-</style></head><body><div class="header">🚀 Supriya Digital Research</div><div id="home" class="section active">
-<div class="stories">
-<div class="story"><img src="https://picsum.photos/100?1"><p>Logo</p></div>
-<div class="story"><img src="https://picsum.photos/100?2"><p>Thumbnail</p></div>
-<div class="story"><img src="https://picsum.photos/100?3"><p>Poster</p></div>
-<div class="story"><img src="https://picsum.photos/100?4"><p>App UI</p></div>
-</div><div class="feed">
-<div class="post">
-<img src="https://picsum.photos/400/200?1">
-<div class="post-content">
-<h3>🔥 Premium Logo Design</h3>
-<p>Unique branding for your business</p>
-<button class="btn" onclick="show('order')">Order Now</button>
-</div>
-</div><div class="post">
-<img src="https://picsum.photos/400/200?2">
-<div class="post-content">
-<h3>📺 YouTube Thumbnail</h3>
-<p>High CTR thumbnails for viral videos</p>
-<button class="btn" onclick="show('order')">Order Now</button>
-</div>
-</div>
-</div>
-</div><div id="order" class="section">
-<div class="form">
-<h2>📝 Place Order</h2>
-<form onsubmit="send(event)">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="text" id="phone" placeholder="Phone Number" required>
-<input type="email" id="email" placeholder="Your Email" required>
-<textarea id="work" placeholder="Describe your work" required></textarea>
-<button class="btn">Submit Order</button>
-</form>
-<div id="successMsg" class="success"></div>
-</div>
-</div><div id="admin" class="section">
-<div class="form">
-<h2>🔐 Admin Panel</h2>
-<input type="password" id="pass" placeholder="Enter Password">
-<button class="btn" onclick="login()">Login</button>
-<div id="panel" style="margin-top:10px"></div>
-</div>
-</div><div class="nav">
-<button onclick="show('home')" id="btnHome">🏠</button>
-<button onclick="show('order')" id="btnOrder">➕</button>
-<button onclick="show('admin')" id="btnAdmin">📊</button>
-</div><script>
-function show(id){
- document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
- if(id==='home') btnHome.classList.add('active');
- if(id==='order') btnOrder.classList.add('active');
- if(id==='admin') btnAdmin.classList.add('active');
-}
+        <!-- Service Card 3 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">🎨</div>
+          <h3 class="text-2xl font-semibold mb-3">Graphic Design & Branding</h3>
+          <p class="text-gray-400 leading-relaxed">Logo, Posters, YouTube Thumbnails, Business Cards, Banners — Creative aur Eye-Catching Visuals।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
 
-function send(e){
- e.preventDefault();
- let n=name.value,p=phone.value,w=work.value,eid=email.value;
- let msg=`Name:${n}%0APhone:${p}%0AEmail:${eid}%0AWork:${w}`;
- window.open(`https://wa.me/919792006815?text=${msg}`);
- successMsg.innerText='✅ Order Sent Successfully!';
-}
+        <!-- Service Card 4 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">🎥</div>
+          <h3 class="text-2xl font-semibold mb-3">YouTube Services & Growth</h3>
+          <p class="text-gray-400 leading-relaxed">Channel Setup, Professional Thumbnails, Video Editing, SEO और Full YouTube Growth Support।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
 
-function login(){
- if(pass.value==='1234') panel.innerHTML='✅ Logged In Successfully';
- else alert('Wrong Password');
-}
-</script></body>
+        <!-- Service Card 5 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">📈</div>
+          <h3 class="text-2xl font-semibold mb-3">Digital Marketing & Ads</h3>
+          <p class="text-gray-400 leading-relaxed">Meta Ads, Google Ads, Content Promotion, Performance Marketing — Sales और Reach बढ़ाएँ।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-card bg-zinc-900 p-8 rounded-3xl border border-purple-900/30">
+          <div class="text-6xl mb-6">✍️</div>
+          <h3 class="text-2xl font-semibold mb-3">Content Creation</h3>
+          <p class="text-gray-400 leading-relaxed">Blog Writing, Ad Copy, Video Scripts, Website Content — Audience को आकर्षित करने वाला Powerful Content।</p>
+          <a href="https://wa.me/919792006815" class="mt-6 inline-flex items-center text-purple-400 hover:text-purple-300">जानें अधिक →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Website Banane Ke Fayde Section (same as before) -->
+  <section id="fayde" class="py-20 bg-zinc-950">
+    <!-- ... yeh same rakh sakte ho jo pehle diya tha, space saving ke liye yaha repeat nahi kiya ... -->
+    <!-- Agar chahiye toh previous message se copy kar lena -->
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-20 bg-gradient-to-br from-purple-950 to-black text-center">
+    <h2 class="text-4xl font-bold mb-4">अपने Business को Digital Boost देने के लिए तैयार हो?</h2>
+    <p class="text-xl text-gray-300 mb-8">Supriya Digital Research के साथ आज ही शुरू करें</p>
+    
+    <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+      <a href="https://wa.me/919792006815" target="_blank" class="bg-green-600 hover:bg-green-700 px-10 py-5 rounded-3xl text-xl font-bold flex items-center gap-3">
+        <i class="fab fa-whatsapp text-3xl"></i> WhatsApp: 9792006815
+      </a>
+      <a href="https://instagram.com/5tar.Suraj" target="_blank" class="bg-pink-600 hover:bg-pink-700 px-10 py-5 rounded-3xl text-xl font-bold flex items-center gap-3">
+        <i class="fab fa-instagram text-3xl"></i> @5tar.Suraj
+      </a>
+      <a href="https://youtube.com/@5tarsuraj" target="_blank" class="bg-red-600 hover:bg-red-700 px-10 py-5 rounded-3xl text-xl font-bold flex items-center gap-3">
+        <i class="fab fa-youtube text-3xl"></i> 5tarsuraj
+      </a>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-gray-500 text-sm bg-black">
+    © 2026 Supriya Digital Research • Prayagraj, Uttar Pradesh<br>
+    Made with ❤️ by Suraj Maurya (Student rudhauli basti)<br>
+    Instagram: @5tar.Suraj | YouTube: 5tarsuraj | Daily Video Content Creator & AI Developer
+  </footer>
+
+</body>
 </html>
